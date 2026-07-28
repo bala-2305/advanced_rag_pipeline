@@ -1,3 +1,61 @@
+Metadata-Version: 2.4
+Name: mzero-rag
+Version: 0.1.0
+Summary: Zero-Configuration RAG Framework and Embeddable SDK for Python
+Author-email: MZero Team <info@mzero.ai>
+License: MIT
+Project-URL: Homepage, https://github.com/bala-2305/advanced_rag_pipeline
+Project-URL: Documentation, https://github.com/bala-2305/advanced_rag_pipeline#readme
+Project-URL: Repository, https://github.com/bala-2305/advanced_rag_pipeline.git
+Project-URL: Issues, https://github.com/bala-2305/advanced_rag_pipeline/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: sentence-transformers>=2.2.2
+Requires-Dist: faiss-cpu>=1.7.4
+Requires-Dist: chromadb>=0.4.0
+Requires-Dist: rank-bm25>=0.2.2
+Requires-Dist: fastapi>=0.100.0
+Requires-Dist: uvicorn[standard]>=0.22.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: pypdf>=3.9.0
+Requires-Dist: python-docx>=0.8.11
+Requires-Dist: python-pptx>=0.6.21
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: streamlit>=1.25.0
+Provides-Extra: streamlit
+Requires-Dist: streamlit>=1.25.0; extra == "streamlit"
+Requires-Dist: watchdog>=3.0.0; extra == "streamlit"
+Provides-Extra: full
+Requires-Dist: qdrant-client>=1.6.0; extra == "full"
+Requires-Dist: pymilvus>=2.3.0; extra == "full"
+Requires-Dist: pytesseract>=0.3.10; extra == "full"
+Requires-Dist: youtube-transcript-api>=0.6.0; extra == "full"
+Requires-Dist: langchain-core>=0.1.0; extra == "full"
+Requires-Dist: llama-index-core>=0.10.0; extra == "full"
+Requires-Dist: flask>=2.3.0; extra == "full"
+Requires-Dist: streamlit>=1.25.0; extra == "full"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: license-file
+
 # mzero: Zero-Configuration RAG Framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
