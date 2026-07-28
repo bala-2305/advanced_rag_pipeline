@@ -1,0 +1,2 @@
+[console_scripts]
+mzero = mzero.cli.main:cli

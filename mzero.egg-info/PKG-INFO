@@ -1,0 +1,127 @@
+Metadata-Version: 2.4
+Name: mzero
+Version: 0.1.0
+Summary: Zero-Configuration RAG Framework and Embeddable SDK for Python
+Author-email: MZero Team <info@mzero.ai>
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: sentence-transformers>=2.2.2
+Requires-Dist: faiss-cpu>=1.7.4
+Requires-Dist: chromadb>=0.4.0
+Requires-Dist: rank-bm25>=0.2.2
+Requires-Dist: fastapi>=0.100.0
+Requires-Dist: uvicorn[standard]>=0.22.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: pypdf>=3.9.0
+Requires-Dist: python-docx>=0.8.11
+Requires-Dist: python-pptx>=0.6.21
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: numpy>=1.24.0
+Provides-Extra: full
+Requires-Dist: qdrant-client>=1.6.0; extra == "full"
+Requires-Dist: pymilvus>=2.3.0; extra == "full"
+Requires-Dist: pytesseract>=0.3.10; extra == "full"
+Requires-Dist: youtube-transcript-api>=0.6.0; extra == "full"
+Requires-Dist: langchain-core>=0.1.0; extra == "full"
+Requires-Dist: llama-index-core>=0.10.0; extra == "full"
+Requires-Dist: flask>=2.3.0; extra == "full"
+Requires-Dist: streamlit>=1.25.0; extra == "full"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: license-file
+
+# mzero: Zero-Configuration RAG Framework
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
+**mzero** is a Zero-Configuration Retrieval-Augmented Generation (RAG) framework and embeddable SDK that allows developers to build enterprise-ready RAG systems with just **one line of code**.
+
+```python
+from mzero import RAG
+
+rag = RAG("./docs")
+print(rag.ask("Explain the refund policy"))
+```
+
+Everything else — document parsing, chunking, embedding model selection, vector DB tiering, hybrid retrieval, reranking, memory, caching, and hallucination checking — happens automatically behind the scenes.
+
+## Features
+
+- 🚀 **Zero Configuration**: Sensible, intelligent defaults out of the box.
+- 📄 **Smart Multi-Format Parsing**: Automatic parsing for PDF, DOCX, TXT, MD, HTML, CSV, JSON, XML, PPTX, Source Code, Web pages, OCR images, YouTube transcripts.
+- ✂️ **Adaptive Chunking**: Domain-aware chunking strategies (Books, Code AST, FAQs, Legal, Research Papers).
+- 🧠 **Smart Embedding Selector**: Language/content detection to choose the best embedding model (BGE, BGE-M3, Code, Bio, or Cloud LLM embeddings).
+- ⚡ **Dynamic Vector DB Routing**: FAISS CPU for <50MB, ChromaDB for medium, Qdrant/Milvus for large datasets.
+- 🔍 **Hybrid Search & Reranking**: Reciprocal Rank Fusion (Dense + BM25) + Cross-Encoder reranking.
+- 🔄 **Incremental Indexing**: Fast file SHA-256 hash tracking; re-indexes modified files only.
+- 🌐 **Web Fallback & Hallucination Guard**: Grounding score verifier with citations + optional web search fallback.
+- 🛠️ **Embeddable SDK & Framework Adapters**: Built-in support for FastAPI, Streamlit, LangChain, LlamaIndex, and Flask.
+- 📊 **Built-in CLI & Dashboard**: CLI commands (`mzero serve`, `mzero ask`) and a live glassmorphism telemetry dashboard.
+
+## Quickstart
+
+```bash
+pip install mzero
+```
+
+### Python SDK Usage
+
+```python
+from mzero import RAG
+
+# Initialize zero-config RAG
+rag = RAG("./docs")
+
+# Ask question
+response = rag.ask("What is the warranty period?")
+print("Answer:", response.answer)
+print("Confidence:", response.confidence)
+
+# Stream response tokens
+for chunk in rag.stream("Summarize chapter 1"):
+    print(chunk, end="")
+```
+
+### Async SDK Usage
+
+```python
+import asyncio
+from mzero import AsyncRAG
+
+async def main():
+    rag = AsyncRAG("./docs")
+    response = await rag.aask("How do I request a refund?")
+    print(response.answer)
+
+asyncio.run(main())
+```
+
+### Serve API & Dashboard
+
+```bash
+mzero serve --port 8000
+```
+Then open `http://localhost:8000/dashboard` in your browser.
+
+## License
+
+MIT License.
