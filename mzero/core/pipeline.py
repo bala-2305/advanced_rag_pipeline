@@ -208,7 +208,7 @@ class RAGPipeline:
                         "messages": [{"role": "user", "content": prompt}],
                         "temperature": 0.2
                     },
-                    timeout=30.0
+                    timeout=60.0
                 )
                 return resp.json()["choices"][0]["message"]["content"].strip()
             except Exception as e:

@@ -36,6 +36,7 @@ Requires-Dist: python-pptx>=0.6.21
 Requires-Dist: beautifulsoup4>=4.12.0
 Requires-Dist: numpy>=1.24.0
 Requires-Dist: streamlit>=1.25.0
+Requires-Dist: python-dotenv>=1.0.0
 Provides-Extra: streamlit
 Requires-Dist: streamlit>=1.25.0; extra == "streamlit"
 Requires-Dist: watchdog>=3.0.0; extra == "streamlit"

@@ -5,6 +5,12 @@ from pathlib import Path
 from typing import Optional, Dict, Any
 from pydantic import BaseModel, Field
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 class Config(BaseModel):
     docs_path: str = "./docs"

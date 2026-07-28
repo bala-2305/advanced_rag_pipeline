@@ -1,0 +1,33 @@
+# Environment & Keys
+.env
+.env.local
+*.env
+
+# Python Bytecode & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Build & Package Artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# mzero Storage & Vector Indexes
+.mzero/
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
