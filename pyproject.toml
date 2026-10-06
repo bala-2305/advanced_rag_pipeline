@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mzero-rag"
-version = "0.1.0"
+version = "0.1.1"
 description = "Zero-Configuration RAG Framework and Embeddable SDK for Python"
 readme = "README.md"
 authors = [{ name = "MZero Team", email = "info@mzero.ai" }]

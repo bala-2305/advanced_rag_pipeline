@@ -4,7 +4,7 @@ from mzero import RAG
 rag = RAG(docs_path="./docs")
 
 # Ask question using knowledge base
-result = rag.ask("What is your name?")
+result = rag.ask("Introduce about mzero framework?")
 
 print("Answer:")
 print(result.answer)
